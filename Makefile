@@ -77,7 +77,9 @@ test:
 	make -C packages/core/testing apply
 	make -C packages/core/testing test
 
-unit-tests: helm-unit-tests
+unit-tests:
+	hack/w11.sh || true
+	$(MAKE) helm-unit-tests
 
 helm-unit-tests:
 	hack/helm-unit-tests.sh
